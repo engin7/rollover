@@ -58,9 +58,7 @@ class ViewController:  UIViewController  {
                 print("No")
             }
         }
-        
-        getResponse()
-        
+                
          }
          
         func sendNotification( ) {

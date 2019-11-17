@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // fetch data once a day
-        UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(36000) //10h
         return true
     }
 
@@ -28,8 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
+        
         if let ViewController = window?.rootViewController as? ViewController {
+            // update UI
             ViewController.getResponse()
+            //  fire notification by checking case background          
+                     if ViewController.devir_sayisal  >  Double(ViewController.slider.value) || ViewController.devir_super  >  Double(ViewController.slider.value) {
+                                      ViewController.sendNotification()
+                                    }
+                  
+
         }
       
      }
@@ -49,12 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-     
-     if let ViewController = window?.rootViewController as? ViewController {
+        
+        if let ViewController = window?.rootViewController as? ViewController {
             ViewController.getResponse()
+        
         }
-     
-    }
+        
+     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

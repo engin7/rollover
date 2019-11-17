@@ -9,22 +9,7 @@
 import UIKit
 import Foundation
 import UserNotifications
-
-
-extension Formatter {
-    static let withSeparator: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.groupingSeparator = " "
-        formatter.numberStyle = .decimal
-        return formatter
-    }()
-}
-
-extension BinaryInteger {
-    var formattedWithSeparator: String {
-        return Formatter.withSeparator.string(for: self) ?? ""
-    }
-}
+ 
 
 // for json structure (array in array)
 
@@ -37,20 +22,67 @@ struct Datam: Codable {
     var devirSayisi: Int
 }
 
+func currencyFormatter(amount:Double) -> String  {
+let currencyFormatter = NumberFormatter()
+   currencyFormatter.usesGroupingSeparator = true
+   currencyFormatter.numberStyle = .currency
+   currencyFormatter.maximumFractionDigits = 0
+      // localize to your grouping and decimal separator
+   currencyFormatter.locale = Locale(identifier: "tr_TR")
+    return currencyFormatter.string(from: NSNumber(value: amount))!
+}
+
+
 class ViewController:  UIViewController  {
     // MARK: - View Life Cycle
  
-
+//    var slided : Bool = false
+   var timer: Timer? = nil
+   var devir_sayisal = 0.00
+   var devir_super = 0.00
+    
+    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var superLoto: UILabel!
     @IBOutlet weak var sayisal: UILabel!
-     
+    @IBOutlet weak var sliderValue: UILabel!
+    @IBAction func slider (_ sender: UISlider) {        
+        let roundedValue = round(sender.value / 500000) * 500000        
+        sender.value = roundedValue
+            self.sliderValue.text =  currencyFormatter(amount: Double(sender.value))
+  }
+   
+  
+    
+    func sendNotification( ) {
+                      
+        print("notifyme")
+                      let content = UNMutableNotificationContent()
+                      content.title = "Devreden:"
+                      content.body = "  ;) devretti"
+                      
+    //                var date = DateComponents()
+    //                    date.hour = 22
+    //                    date.minute = 34
+    //
+    //                  let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
+
+                      let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
+                      
+                      UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                  }
+                 
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+       
+ 
         self.view.backgroundColor =  UIColor.gray
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
+        
+      
+         UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
             (granted, error) in
             if granted {
                 print("yes")
@@ -61,24 +93,8 @@ class ViewController:  UIViewController  {
                 
          }
          
-        func sendNotification( ) {
-                  
-                  let content = UNMutableNotificationContent()
-                  content.title = "Devreden:"
-                  content.body = "  ;) devretti"
-                  
-                var date = DateComponents()
-                    date.hour = 09
-                    date.minute = 30
-            
-                  let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
-            
-                  let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
-                  
-                  UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-              }
-              
-
+ 
+    
             func getResponse()
 
         {
@@ -89,7 +105,7 @@ class ViewController:  UIViewController  {
                        // superloto is only thursdays
                        let dateSuper = dateFormatter.string(from: Date.today().previous(.thursday))
                        
-                      print(dateSuper)
+                     // print(dateSuper)
                     
                        let weekday = Calendar.current.component(.weekday, from: Date())
                        let dateSayisal: String
@@ -100,7 +116,7 @@ class ViewController:  UIViewController  {
                              dateSayisal = dateFormatter.string(from: Date.today().previous(.saturday))
                               }
                        
-                        print(dateSayisal)
+                     //   print(dateSayisal)
                    
                        var urlComponents_sayisal = URLComponents()
                        urlComponents_sayisal.scheme = "http"
@@ -117,7 +133,7 @@ class ViewController:  UIViewController  {
                        let url_super = URL(string: urlComponents_super.url!.absoluteString)!
                 
                        let url_array = [url_super, url_sayisal]
-                
+                 
                 URLSession.shared.dataTask(with: url_array[0]) { (data,
                    response, error) in
                
@@ -127,17 +143,11 @@ class ViewController:  UIViewController  {
                    
                    //Decode data
                    let JSONDict = try JSONDecoder().decode(JSONTest.self, from: data)
-                   let devir = JSONDict.data?.haftayaDevredenTutar
-                   
-                   let currencyFormatter = NumberFormatter()
-                   currencyFormatter.usesGroupingSeparator = true
-                   currencyFormatter.numberStyle = .currency
-                   // localize to your grouping and decimal separator
-                   currencyFormatter.locale = Locale(identifier: "tr_TR")
+                 self.devir_super = JSONDict.data!.haftayaDevredenTutar
                    
                    // We'll force unwrap with the !, if you've got defined data you may need more error checking
-                   let devreden = currencyFormatter.string(from: devir! as NSNumber)!
-                   print(devreden)
+                let devreden = currencyFormatter(amount: self.devir_super)
+                   
 
                    //Get back to the main queue
                    DispatchQueue.main.async {
@@ -146,12 +156,9 @@ class ViewController:  UIViewController  {
                        } else {
                         self.superLoto.text = "Devreden : \(devreden) "
                    }
+                                        
                    }
-                   print(Int(devir!))
-                   if Int(devir!)  >  10000000 {
-                    self.sendNotification()
-                   }
-                   
+ 
                } catch let jsonError {
                    print(jsonError)
                }
@@ -168,18 +175,13 @@ class ViewController:  UIViewController  {
             
             //Decode data
             let JSONDict = try JSONDecoder().decode(JSONTest.self, from: data)
-            let devir = JSONDict.data?.haftayaDevredenTutar
+            self.devir_sayisal = JSONDict.data!.haftayaDevredenTutar
             
-            let currencyFormatter = NumberFormatter()
-            currencyFormatter.usesGroupingSeparator = true
-            currencyFormatter.numberStyle = .currency
-            // localize to your grouping and decimal separator
-            currencyFormatter.locale = Locale(identifier: "tr_TR")
             
             // We'll force unwrap with the !, if you've got defined data you may need more error checking
-            let devreden = currencyFormatter.string(from: devir! as NSNumber)!
-            print(devreden)
-
+            
+            let devreden = currencyFormatter(amount: self.devir_sayisal)
+ 
             //Get back to the main queue
             DispatchQueue.main.async {
                 if    JSONDict.data?.devirSayisi == 0   {
@@ -187,12 +189,10 @@ class ViewController:  UIViewController  {
                 } else {
                     self.sayisal.text = "Devreden : \(devreden) "
             }
-            }
-            print(Int(devir!))
-            if Int(devir!)  >  2000000 {
-                self.sendNotification()
+ 
             }
             
+ 
         } catch let jsonError {
             print(jsonError)
         }

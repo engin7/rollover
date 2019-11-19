@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Devreden
 //
-//  Created by Engin KUK on 5.06.2019.
+//  Created by Engin on 5.06.2019.
 //  Copyright © 2019 Silverback Inc. All rights reserved.
 //
 

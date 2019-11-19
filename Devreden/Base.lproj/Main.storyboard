@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D10-5I-Mud">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D10-5I-Mud">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,6 +27,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="eKk-3F-cP9"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="slider:" destination="D10-5I-Mud" eventType="valueChanged" id="5n9-Ln-weB"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyE-T8-3XC">
                                 <rect key="frame" x="139" y="202" width="42" height="21"/>
@@ -86,6 +89,8 @@
                     </view>
                     <connections>
                         <outlet property="sayisal" destination="jhh-aJ-hh2" id="qfW-r7-YJi"/>
+                        <outlet property="slider" destination="e8K-vA-sh4" id="1hT-vO-5Bf"/>
+                        <outlet property="sliderValue" destination="Z0C-1R-D0J" id="ENy-hg-ktg"/>
                         <outlet property="superLoto" destination="gyE-T8-3XC" id="pf3-yl-tDH"/>
                     </connections>
                 </viewController>

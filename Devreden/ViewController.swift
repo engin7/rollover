@@ -36,8 +36,6 @@ let currencyFormatter = NumberFormatter()
 class ViewController:  UIViewController  {
     // MARK: - View Life Cycle
  
-//    var slided : Bool = false
-   var timer: Timer? = nil
    var devir_sayisal = 0.00
    var devir_super = 0.00
     
@@ -46,9 +44,11 @@ class ViewController:  UIViewController  {
     @IBOutlet weak var sayisal: UILabel!
     @IBOutlet weak var sliderValue: UILabel!
     @IBAction func slider (_ sender: UISlider) {        
-        let roundedValue = round(sender.value / 500000) * 500000        
+        let roundedValue = round(sender.value / 1000000) * 1000000        
         sender.value = roundedValue
             self.sliderValue.text =  currencyFormatter(amount: Double(sender.value))
+        print(sender.value)
+        
   }
    
   

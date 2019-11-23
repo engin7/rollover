@@ -15,6 +15,27 @@ import Foundation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func sendNotification( ) {
+                      
+        print("notifyme")
+                      let content = UNMutableNotificationContent()
+                      content.title = "Devreden:"
+                      content.body = "  ;) devretti"
+                      
+    //                var date = DateComponents()
+    //                    date.hour = 22
+    //                    date.minute = 34
+    //
+    //                  let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
+
+                      let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
+                      
+                      UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                  }
+          
  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -29,18 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         
-        if let ViewController = window?.rootViewController as? ViewController {
+        if let ViewController = window?.rootViewController as?
+             
+            ViewController {
             // update UI
-            ViewController.getResponse()
+            ViewController.viewDidLoad()
             //  fire notification by checking case background          
                      if ViewController.devir_sayisal  >  Double(ViewController.slider.value) || ViewController.devir_super  >  Double(ViewController.slider.value) {
-                                      ViewController.sendNotification()
+                                      sendNotification()
                                     }
-                  
-
-        }
-      
-     }
+                }
+       
+      }
  
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -53,15 +74,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        
+               if let ViewController = window?.rootViewController as? ViewController {
+                   ViewController.viewDidLoad()
+               
+               }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        
-        if let ViewController = window?.rootViewController as? ViewController {
-            ViewController.getResponse()
-        
-        }
+       
         
      }
 

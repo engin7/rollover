@@ -23,12 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                       content.title = "Devreden:"
                       content.body = "  ;) devretti"
                       
-    //                var date = DateComponents()
-    //                    date.hour = 22
-    //                    date.minute = 34
-    //
-    //                  let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
-                
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
 
                       let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)

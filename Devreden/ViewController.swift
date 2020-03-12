@@ -47,8 +47,7 @@ class ViewController:  UIViewController  {
         let roundedValue = round(sender.value / 1000000) * 1000000        
         sender.value = roundedValue
             self.sliderValue.text =  currencyFormatter(amount: Double(sender.value))
-        print(sender.value)
-        
+ 
   }
    
   
@@ -85,9 +84,7 @@ class ViewController:  UIViewController  {
                        
                        // superloto is only thursdays
                        let dateSuper = dateFormatter.string(from: Date.today().previous(.thursday))
-                       
-                     // print(dateSuper)
-                    
+        
                        let weekday = Calendar.current.component(.weekday, from: Date())
                        let dateSayisal: String
                        // calculate which day is the last sayisal loto
@@ -97,8 +94,7 @@ class ViewController:  UIViewController  {
                              dateSayisal = dateFormatter.string(from: Date.today().previous(.saturday))
                               }
                        
-                     //   print(dateSayisal)
-                   
+ 
                        var urlComponents_sayisal = URLComponents()
                        urlComponents_sayisal.scheme = "http"
                        urlComponents_sayisal.host = "millipiyango.gov.tr"

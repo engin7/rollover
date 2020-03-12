@@ -43,8 +43,8 @@
                                     <constraint firstAttribute="height" constant="81" id="mrR-a8-XS7"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0C-1R-D0J">
-                                <rect key="frame" x="139" y="132" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="set limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0C-1R-D0J">
+                                <rect key="frame" x="130" y="132" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                                 </connections>
                             </slider>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.99598890542984009" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="tVF-0b-ghn" firstAttribute="top" secondItem="OPO-mc-wK9" secondAttribute="bottom" constant="116" id="0wv-Ja-4Or"/>
                             <constraint firstItem="OPO-mc-wK9" firstAttribute="leading" secondItem="CUs-v4-Rvk" secondAttribute="leading" constant="89" id="2AF-il-hPD"/>

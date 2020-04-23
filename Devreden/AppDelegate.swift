@@ -8,56 +8,33 @@
 
 import UIKit
 import CoreData
-import UserNotifications
-import Foundation
- 
+import BackgroundTasks
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    func sendNotification( ) {
-                      
-        print("notifyme")
-                      let content = UNMutableNotificationContent()
-                      content.title = "Devreden:"
-                      content.body = "  ;) devretti"
-                      
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
-
-          let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
-          
-          UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-      }
-
  
+ // registering the task identifier and associated closure:
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        // fetch data once a day
-        UIApplication.shared.setMinimumBackgroundFetchInterval(36000) //10h
+        registerBackgroundTaks()
+        registerLocalNotification()
         return true
     }
-
-    // *** Method performFetchWithCompletionHandler   is deprecated. For apps supporting iOS 13 and higher   BGAppRefreshTask will be used. Will be updated in the future ***
-
-    func application(_ application: UIApplication,
-                     performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-        
-        if let ViewController = window?.rootViewController as?
-             
-            ViewController {
-            // update UI
-            ViewController.viewDidLoad()
-            //  fire notification by checking case background          
-                     if ViewController.devir_sayisal  >  Double(ViewController.slider.value) || ViewController.devir_super  >  Double(ViewController.slider.value) {
-                                      sendNotification()
-                                    }
-                }
-       
-      }
  
-    func applicationWillResignActive(_ application: UIApplication) {
+        //MARK: Register BackGround Tasks
+        private func registerBackgroundTaks() {
+
+       //In handleAppRefresh function, we run the background operation.
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "tr.gov.millipiyango-devreden.refresh", using: nil) { task in
+        //This task is cast with processing request (BGAppRefreshTask)
+        self.scheduleLocalNotification()
+        self.handleAppRefreshTask(task: task as! BGAppRefreshTask)
+        }
+        }
+
+  
+     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
@@ -65,15 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        cancelAllPandingBGTask()
+        scheduleAppRefresh()
+
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         
-        
-               if let ViewController = window?.rootViewController as? ViewController {
-                   ViewController.viewDidLoad()
-               
-               }
+         
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -134,3 +110,94 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//MARK:- BGTask Helper
+extension AppDelegate {
+    
+    func cancelAllPandingBGTask() {
+        BGTaskScheduler.shared.cancelAllTaskRequests()
+    }
+
+ 
+    func scheduleAppRefresh() {
+        let request = BGAppRefreshTaskRequest(identifier: "tr.gov.millipiyango-devreden.refresh")
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60) // App Refresh after 30 sec.
+        //Note :: EarliestBeginDate should not be set to too far into the future.
+        do {
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print("Could not schedule app refresh: \(error)")
+        }
+    }
+    
+    func handleAppRefreshTask(task: BGAppRefreshTask) {
+        //Todo Work
+         
+         if let ViewController = window?.rootViewController as?
+                   
+          ViewController {
+          // update UI
+          ViewController.viewDidLoad()
+          //  fire notification by checking case background
+           if ViewController.devir_sayisal  >  Double(ViewController.slider.value) || ViewController.devir_super  >  Double(ViewController.slider.value) {
+               
+                    scheduleLocalNotification()
+                 }
+              }
+         
+        task.expirationHandler = {
+            //This Block call by System
+            //Canle your all tak's & queues
+        }
+        //
+        task.setTaskCompleted(success: true)
+    }
+    
+ }
+
+//MARK:- Notification Helper
+extension AppDelegate {
+    
+    func registerLocalNotification() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        
+        notificationCenter.requestAuthorization(options: options) {
+            (didAllow, error) in
+            if !didAllow {
+                print("User has declined notifications")
+            }
+        }
+    }
+    
+    func scheduleLocalNotification() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                self.fireNotification()
+            }
+        }
+    }
+    
+    func fireNotification() {
+        // Create Notification Content
+        let notificationContent = UNMutableNotificationContent()
+        
+        // Configure Notification Content
+        notificationContent.title = "Bg"
+        notificationContent.body = "BG Notifications."
+        
+        // Add Trigger
+        let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1.0, repeats: false)
+        
+        // Create Notification Request
+        let notificationRequest = UNNotificationRequest(identifier: "local_notification", content: notificationContent, trigger: notificationTrigger)
+        
+        // Add Request to User Notification Center
+        UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+            if let error = error {
+                print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+            }
+        }
+    }
+    
+}

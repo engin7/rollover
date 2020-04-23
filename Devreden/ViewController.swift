@@ -92,7 +92,6 @@ class ViewController:  UIViewController  {
                              dateSayisal = dateFormatter.string(from: Date.today().previous(.saturday))
                               }
                        
- 
                        var urlComponents_sayisal = URLComponents()
                        urlComponents_sayisal.scheme = "http"
                        urlComponents_sayisal.host = "millipiyango.gov.tr"

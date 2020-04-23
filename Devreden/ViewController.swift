@@ -59,14 +59,12 @@ class ViewController:  UIViewController  {
         super.viewDidLoad()
        
         getResponse()
-         
-        self.view.backgroundColor =  UIColor.gray
-        
+          
       
          UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
             (granted, error) in
             if granted {
-                print("yes")
+                print("yes, notification request ok.")
             } else {
                 print("No")
             }

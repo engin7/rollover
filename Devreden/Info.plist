@@ -44,7 +44,7 @@
 	</array>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>tr.gov.millipiyango-devreden.refresh</string>
+		<string>com.piyango.refresh</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

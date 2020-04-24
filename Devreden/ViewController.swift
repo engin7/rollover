@@ -63,10 +63,8 @@ class ViewController:  UIViewController  {
       
          UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
             (granted, error) in
-            if granted {
-                print("yes, notification request ok.")
-            } else {
-                print("No")
+            if let error = error {
+                print(error)
             }
         }
                 

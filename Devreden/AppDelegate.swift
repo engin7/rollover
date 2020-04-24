@@ -24,12 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
         //MARK: Register BackGround Tasks
         private func registerBackgroundTaks() {
-
        //In handleAppRefresh function, we run the background operation.
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: "tr.gov.millipiyango-devreden.refresh", using: nil) { task in
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.piyango.refresh", using: nil) { (task) in
         //This task is cast with processing request (BGAppRefreshTask)
-        self.scheduleLocalNotification()
-        self.handleAppRefreshTask(task: task as! BGAppRefreshTask)
+         self.handleAppRefreshTask(task: task as! BGAppRefreshTask)
         }
         }
 
@@ -44,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         cancelAllPandingBGTask()
         scheduleAppRefresh()
-
+ 
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -116,11 +114,10 @@ extension AppDelegate {
     func cancelAllPandingBGTask() {
         BGTaskScheduler.shared.cancelAllTaskRequests()
     }
-
  
     func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "tr.gov.millipiyango-devreden.refresh")
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60) // App Refresh after 30 sec.
+        let request = BGAppRefreshTaskRequest(identifier: "com.piyango.refresh")
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 8 * 60 * 60) // App Refresh after 30 sec.
         //Note :: EarliestBeginDate should not be set to too far into the future.
         do {
             try BGTaskScheduler.shared.submit(request)
@@ -130,8 +127,20 @@ extension AppDelegate {
     }
     
     func handleAppRefreshTask(task: BGAppRefreshTask) {
-        //Todo Work
-         
+   
+        scheduleAppRefresh()
+ 
+        checkLottery()
+        
+        task.expirationHandler = {
+//            scheduleLocalNotification.cancel()
+        }
+          task.setTaskCompleted(success: true)
+
+    }
+    
+    func checkLottery() {
+        
          if let ViewController = window?.rootViewController as?
                    
           ViewController {
@@ -139,22 +148,18 @@ extension AppDelegate {
           ViewController.viewDidLoad()
           //  fire notification by checking case background
            if ViewController.devir_sayisal  >  Double(ViewController.slider.value) || ViewController.devir_super  >  Double(ViewController.slider.value) {
-               
                     scheduleLocalNotification()
                  }
+             
+
               }
-         
-        task.expirationHandler = {
-            //This Block call by System
-            //Canle your all tak's & queues
-        }
-        //
-        task.setTaskCompleted(success: true)
     }
-    
  }
 
+
+
 //MARK:- Notification Helper
+
 extension AppDelegate {
     
     func registerLocalNotification() {
@@ -183,8 +188,8 @@ extension AppDelegate {
         let notificationContent = UNMutableNotificationContent()
         
         // Configure Notification Content
-        notificationContent.title = "Bg"
-        notificationContent.body = "BG Notifications."
+        notificationContent.title = "Devreden:"
+        notificationContent.body = "Loto limitin üzerinde devretti!"
         
         // Add Trigger
         let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1.0, repeats: false)

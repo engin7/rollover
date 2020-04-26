@@ -124,11 +124,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperTableViewCell" rowHeight="83" id="Weo-qa-KrL" customClass="SuperTableViewCell" customModule="Devreden" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="83"/>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperTableViewCell" rowHeight="120" id="Weo-qa-KrL" customClass="SuperTableViewCell" customModule="Devreden" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Weo-qa-KrL" id="fPa-sB-1mK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tarih / Çekiliş : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKf-Ab-IGq" userLabel="date">
@@ -152,8 +152,8 @@
                                     <outlet property="numbers" destination="o3T-9u-5U5" id="nDC-2u-32U"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="superOld" textLabel="xO0-fs-seW" detailTextLabel="CXz-8v-brQ" rowHeight="42" style="IBUITableViewCellStyleValue1" id="Ymn-F2-kl5">
-                                <rect key="frame" x="0.0" y="111" width="320" height="42"/>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="superOld" textLabel="xO0-fs-seW" detailTextLabel="CXz-8v-brQ" rowHeight="42" style="IBUITableViewCellStyleValue1" id="Ymn-F2-kl5">
+                                <rect key="frame" x="0.0" y="148" width="320" height="42"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ymn-F2-kl5" id="c3I-Qe-4As">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>

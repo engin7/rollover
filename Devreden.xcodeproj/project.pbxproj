@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1005EC53234A95BB00172ECB /* DateFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005EC52234A95BB00172ECB /* DateFinder.swift */; };
+		10F50BC1245620F000C1D50D /* SuperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F50BC0245620F000C1D50D /* SuperTableViewController.swift */; };
 		10F714EB22A83F5A00F919AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F714EA22A83F5A00F919AA /* AppDelegate.swift */; };
 		10F714ED22A83F5A00F919AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F714EC22A83F5A00F919AA /* ViewController.swift */; };
 		10F714F022A83F5A00F919AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F714EE22A83F5A00F919AA /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		1005EC52234A95BB00172ECB /* DateFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFinder.swift; sourceTree = "<group>"; };
+		10F50BC0245620F000C1D50D /* SuperTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperTableViewController.swift; sourceTree = "<group>"; };
 		10F714E722A83F5A00F919AA /* Devreden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devreden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F714EA22A83F5A00F919AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F714EC22A83F5A00F919AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				10F714EC22A83F5A00F919AA /* ViewController.swift */,
 				1005EC52234A95BB00172ECB /* DateFinder.swift */,
 				10F714EE22A83F5A00F919AA /* Main.storyboard */,
+				10F50BC0245620F000C1D50D /* SuperTableViewController.swift */,
 				10F714F422A83F5B00F919AA /* Assets.xcassets */,
 				10F714F622A83F5B00F919AA /* LaunchScreen.storyboard */,
 				10F714F922A83F5B00F919AA /* Info.plist */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F50BC1245620F000C1D50D /* SuperTableViewController.swift in Sources */,
 				10F714F322A83F5A00F919AA /* Devreden.xcdatamodeld in Sources */,
 				1005EC53234A95BB00172ECB /* DateFinder.swift in Sources */,
 				10F714ED22A83F5A00F919AA /* ViewController.swift in Sources */,

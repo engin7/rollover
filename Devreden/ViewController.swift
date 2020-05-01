@@ -19,6 +19,8 @@ struct JSONTest: Codable {
 
 struct Datam: Codable {
     var haftayaDevredenTutar: Double
+    var cekilisTarihi: String
+    var rakamlarNumaraSirasi: String
     var devirSayisi: Int
 }
 
@@ -75,38 +77,8 @@ class ViewController:  UIViewController  {
 
         {
             
-                let dateFormatter = DateFormatter()
-                       dateFormatter.dateFormat = "yyyyMMdd"
-                       
-                       // superloto is only thursdays
-                       let dateSuper = dateFormatter.string(from: Date.today().previous(.thursday))
-        
-                       let weekday = Calendar.current.component(.weekday, from: Date())
-                       let dateSayisal: String
-                       // calculate which day is the last sayisal loto
-                       if weekday > 4  {
-                             dateSayisal = dateFormatter.string(from: Date.today().previous(.wednesday))
-                       } else {
-                             dateSayisal = dateFormatter.string(from: Date.today().previous(.saturday))
-                              }
-                       
-                       var urlComponents_sayisal = URLComponents()
-                       urlComponents_sayisal.scheme = "http"
-                       urlComponents_sayisal.host = "millipiyango.gov.tr"
-                       urlComponents_sayisal.path = "/sonuclar/cekilisler/sayisal/SAY_\(dateSayisal).json"
-                
-                       let url_sayisal = URL(string: urlComponents_sayisal.url!.absoluteString)!
-                       
-                       var urlComponents_super = URLComponents()
-                       urlComponents_super.scheme = "http"
-                       urlComponents_super.host = "mpi.gov.tr"
-                       urlComponents_super.path = "/sonuclar/cekilisler/superloto/\(dateSuper).json"
-                       
-                       let url_super = URL(string: urlComponents_super.url!.absoluteString)!
-                
-                       let url_array = [url_super, url_sayisal]
-                 
-                URLSession.shared.dataTask(with: url_array[0]) { (data,
+               
+                URLSession.shared.dataTask(with: Super(weeksBefore: 0).url_super) { (data,
                    response, error) in
                
                guard let data = data else { return }
@@ -138,7 +110,7 @@ class ViewController:  UIViewController  {
             
             .resume()
 
-         URLSession.shared.dataTask(with: url_array[1]) { (data,
+            URLSession.shared.dataTask(with: Sayisal(drawBefore: 0).url_sayisal) { (data,
             response, error) in
              
         guard let data = data else { return }

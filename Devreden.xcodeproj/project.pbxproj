@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1005EC53234A95BB00172ECB /* DateFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005EC52234A95BB00172ECB /* DateFinder.swift */; };
+		1093CB1F245BA9200012113A /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093CB1E245BA9200012113A /* Modal.swift */; };
+		1093CB21245C67F80012113A /* SayisalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093CB20245C67F80012113A /* SayisalTableViewController.swift */; };
 		10F50BC1245620F000C1D50D /* SuperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F50BC0245620F000C1D50D /* SuperTableViewController.swift */; };
 		10F714EB22A83F5A00F919AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F714EA22A83F5A00F919AA /* AppDelegate.swift */; };
 		10F714ED22A83F5A00F919AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F714EC22A83F5A00F919AA /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		1005EC52234A95BB00172ECB /* DateFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFinder.swift; sourceTree = "<group>"; };
+		1093CB1E245BA9200012113A /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		1093CB20245C67F80012113A /* SayisalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayisalTableViewController.swift; sourceTree = "<group>"; };
 		10F50BC0245620F000C1D50D /* SuperTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperTableViewController.swift; sourceTree = "<group>"; };
 		10F714E722A83F5A00F919AA /* Devreden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devreden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F714EA22A83F5A00F919AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,9 +66,11 @@
 			children = (
 				10F714EA22A83F5A00F919AA /* AppDelegate.swift */,
 				10F714EC22A83F5A00F919AA /* ViewController.swift */,
+				10F50BC0245620F000C1D50D /* SuperTableViewController.swift */,
+				1093CB20245C67F80012113A /* SayisalTableViewController.swift */,
+				1093CB1E245BA9200012113A /* Modal.swift */,
 				1005EC52234A95BB00172ECB /* DateFinder.swift */,
 				10F714EE22A83F5A00F919AA /* Main.storyboard */,
-				10F50BC0245620F000C1D50D /* SuperTableViewController.swift */,
 				10F714F422A83F5B00F919AA /* Assets.xcassets */,
 				10F714F622A83F5B00F919AA /* LaunchScreen.storyboard */,
 				10F714F922A83F5B00F919AA /* Info.plist */,
@@ -150,6 +156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				10F50BC1245620F000C1D50D /* SuperTableViewController.swift in Sources */,
+				1093CB21245C67F80012113A /* SayisalTableViewController.swift in Sources */,
+				1093CB1F245BA9200012113A /* Modal.swift in Sources */,
 				10F714F322A83F5A00F919AA /* Devreden.xcdatamodeld in Sources */,
 				1005EC53234A95BB00172ECB /* DateFinder.swift in Sources */,
 				10F714ED22A83F5A00F919AA /* ViewController.swift in Sources */,

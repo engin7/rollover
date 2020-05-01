@@ -56,7 +56,7 @@ class SuperTableViewController: UITableViewController {
 
     case 0:
     let title: UILabel = UILabel()
-    title.text = "Son Cekilis"
+    title.text = "Son Çekiliş"
     title.font = UIFont(name: "Arial", size: 24)
 
     title.textAlignment = NSTextAlignment.center
@@ -64,7 +64,7 @@ class SuperTableViewController: UITableViewController {
  
     case 1:
     let title: UILabel = UILabel()
-    title.text = "Tarih ve Talihli Sayılar"
+    title.text = "Eski Çekilişler"
     title.font = UIFont(name: "Arial", size: 24)
     title.backgroundColor = .gray
 
@@ -81,9 +81,28 @@ class SuperTableViewController: UITableViewController {
         
     if (indexPath.section == 0) {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SuperTableViewCell", for: indexPath) as! SuperTableViewCell
-           
-           cell.date.text = "nnnn"
-           cell.numbers.text = "loganX"
+        
+        URLSession.shared.dataTask(with: Super(weeksBefore: 0).url_super) { (data,
+                                                    response, error) in
+
+                    guard let data = data else { return }
+                 DispatchQueue.main.async {
+
+                    do {
+
+                  //Decode data
+                  let JSONDict = try JSONDecoder().decode(JSONTest.self, from: data)
+
+                 cell.date.text = JSONDict.data!.cekilisTarihi
+                 cell.numbers.text =  JSONDict.data!.rakamlarNumaraSirasi
+                 cell.textLabel?.adjustsFontSizeToFitWidth = true
+                 cell.textLabel?.textColor = .systemBlue
+                 cell.detailTextLabel?.adjustsFontSizeToFitWidth = true
+                     
+                  }   catch let jsonError {
+                      print(jsonError)
+                     }}}
+                  .resume()
         
           return cell
 
@@ -92,7 +111,7 @@ class SuperTableViewController: UITableViewController {
 
         
 
-        URLSession.shared.dataTask(with: Super(weeksBefore: indexPath.row).url_super) { (data,
+        URLSession.shared.dataTask(with: Super(weeksBefore: indexPath.row+1).url_super) { (data,
                                                response, error) in
 
                guard let data = data else { return }
@@ -123,7 +142,7 @@ class SuperTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          if (indexPath.section == 0) {
-        return 100
+        return 80
          } else {
         return 40
         }

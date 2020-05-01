@@ -53,7 +53,7 @@ class SayisalTableViewController: UITableViewController {
 
        case 0:
        let title: UILabel = UILabel()
-       title.text = "Son Cekilis"
+       title.text = "Son Çekiliş"
        title.font = UIFont(name: "Arial", size: 24)
 
        title.textAlignment = NSTextAlignment.center
@@ -61,7 +61,7 @@ class SayisalTableViewController: UITableViewController {
     
        case 1:
        let title: UILabel = UILabel()
-       title.text = "Tarih ve Talihli Sayılar"
+       title.text = "Eski Çekilişler"
        title.font = UIFont(name: "Arial", size: 24)
        title.backgroundColor = .gray
        title.textAlignment = NSTextAlignment.center
@@ -75,18 +75,36 @@ class SayisalTableViewController: UITableViewController {
            
        if (indexPath.section == 0) {
            let cell = tableView.dequeueReusableCell(withIdentifier: "SayisalTableViewCell", for: indexPath) as! SayisalTableViewCell
-              
-              cell.date.text = "nnnn"
-              cell.numbers.text = "loganX"
-           
-             return cell
+               
+                URLSession.shared.dataTask(with: Sayisal(drawBefore: 0).url_sayisal) { (data,
+                                                            response, error) in
+
+                guard let data = data else { return }
+             DispatchQueue.main.async {
+
+                do {
+
+              //Decode data
+              let JSONDict = try JSONDecoder().decode(JSONTest.self, from: data)
+
+             cell.date.text = JSONDict.data!.cekilisTarihi
+             cell.numbers.text =  JSONDict.data!.rakamlarNumaraSirasi
+             cell.textLabel?.adjustsFontSizeToFitWidth = true
+             cell.textLabel?.textColor = .systemBlue
+             cell.detailTextLabel?.adjustsFontSizeToFitWidth = true
+                 
+              }   catch let jsonError {
+                  print(jsonError)
+                 }}}
+              .resume()
+                
+                  return cell
 
            } else {
                let cell = tableView.dequeueReusableCell(withIdentifier: "sayisalOld", for: indexPath)
+ 
 
-           
-
-           URLSession.shared.dataTask(with: Sayisal(drawBefore: indexPath.row).url_sayisal) { (data,
+           URLSession.shared.dataTask(with: Sayisal(drawBefore: indexPath.row+1).url_sayisal) { (data,
                                                   response, error) in
 
                   guard let data = data else { return }
@@ -116,7 +134,7 @@ class SayisalTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if (indexPath.section == 0) {
-           return 100
+           return 80
             } else {
            return 40
            }

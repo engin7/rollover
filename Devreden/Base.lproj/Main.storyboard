@@ -135,21 +135,25 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tarih / Çekiliş : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKf-Ab-IGq" userLabel="date">
-                                            <rect key="frame" x="16" y="11" width="288" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numbers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-9u-5U5" userLabel="date">
+                                            <rect key="frame" x="114.5" y="80" width="91.5" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="numbers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-9u-5U5" userLabel="date">
-                                            <rect key="frame" x="16" y="43" width="77" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarih / Çekiliş : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKf-Ab-IGq" userLabel="date">
+                                            <rect key="frame" x="95" y="11" width="130" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="o3T-9u-5U5" firstAttribute="centerX" secondItem="fPa-sB-1mK" secondAttribute="centerX" id="Abt-Ei-gkm"/>
+                                        <constraint firstItem="YKf-Ab-IGq" firstAttribute="top" secondItem="fPa-sB-1mK" secondAttribute="topMargin" id="Eud-Kj-3Nq"/>
+                                        <constraint firstItem="o3T-9u-5U5" firstAttribute="bottom" secondItem="fPa-sB-1mK" secondAttribute="bottomMargin" id="LRU-Wg-Z9y"/>
+                                        <constraint firstItem="YKf-Ab-IGq" firstAttribute="centerX" secondItem="fPa-sB-1mK" secondAttribute="centerX" id="Q8m-WZ-wkd"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="0.74753852740000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -210,21 +214,25 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tarih / Çekiliş : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmL-eC-sXh" userLabel="date">
-                                            <rect key="frame" x="16" y="11" width="288" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarih / Çekiliş : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmL-eC-sXh" userLabel="date">
+                                            <rect key="frame" x="95" y="11" width="130" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="numbers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H32-ur-vJG" userLabel="date">
-                                            <rect key="frame" x="16" y="43" width="77" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numbers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H32-ur-vJG" userLabel="date">
+                                            <rect key="frame" x="114.5" y="80" width="91.5" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZmL-eC-sXh" firstAttribute="top" secondItem="pFF-aE-7sO" secondAttribute="topMargin" id="1iF-y1-qju"/>
+                                        <constraint firstItem="H32-ur-vJG" firstAttribute="bottom" secondItem="pFF-aE-7sO" secondAttribute="bottomMargin" id="60S-e3-Em0"/>
+                                        <constraint firstItem="ZmL-eC-sXh" firstAttribute="centerX" secondItem="pFF-aE-7sO" secondAttribute="centerX" id="Ca5-Hj-amT"/>
+                                        <constraint firstItem="H32-ur-vJG" firstAttribute="centerX" secondItem="pFF-aE-7sO" secondAttribute="centerX" id="Jkv-hJ-aEw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="0.74753852740000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -267,7 +275,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="268-T3-Tke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="696"/>
+            <point key="canvasLocation" x="367.5" y="695.07042253521126"/>
         </scene>
     </scenes>
     <resources>

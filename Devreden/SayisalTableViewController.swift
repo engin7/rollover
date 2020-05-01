@@ -63,7 +63,7 @@ class SayisalTableViewController: UITableViewController {
        let title: UILabel = UILabel()
        title.text = "Tarih ve Talihli Sayılar"
        title.font = UIFont(name: "Arial", size: 24)
-
+       title.backgroundColor = .gray
        title.textAlignment = NSTextAlignment.center
        return title
        default: return nil
@@ -86,7 +86,7 @@ class SayisalTableViewController: UITableViewController {
 
            
 
-           URLSession.shared.dataTask(with: Super(weeksBefore: indexPath.row).url_super) { (data,
+           URLSession.shared.dataTask(with: Sayisal(drawBefore: indexPath.row).url_sayisal) { (data,
                                                   response, error) in
 
                   guard let data = data else { return }

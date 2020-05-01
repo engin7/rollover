@@ -66,6 +66,7 @@ class SuperTableViewController: UITableViewController {
     let title: UILabel = UILabel()
     title.text = "Tarih ve Talihli Sayılar"
     title.font = UIFont(name: "Arial", size: 24)
+    title.backgroundColor = .gray
 
     title.textAlignment = NSTextAlignment.center
     return title

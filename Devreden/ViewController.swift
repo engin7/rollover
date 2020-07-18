@@ -10,9 +10,11 @@ import UIKit
 import Foundation
 import UserNotifications
  
+// TODO: stripe support, Userdefaults for slider,
+
+
 
 // for json structure (array in array)
-
 struct JSONTest: Codable {
     var data: Datam?
 }
@@ -53,6 +55,19 @@ class ViewController:  UIViewController  {
   }
    
   
+    @IBAction func ocr(_ sender: Any) {
+        
+        func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+               if (segue.identifier == "ocr") {
+                if segue.destination is ScanViewController {
+                      // Prepare attributes you have to prepare
+
+                   }
+
+               }
+
+           }
+    }
     
        
     

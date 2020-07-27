@@ -56,21 +56,15 @@ class ViewController:  UIViewController  {
    
   
     @IBAction func ocr(_ sender: Any) {
-        
         func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-               if (segue.identifier == "ocr") {
-                if segue.destination is ScanViewController {
+               if (segue.identifier == "ocr") { // sabit kullan
+                if segue.destination is VisionViewController {
                       // Prepare attributes you have to prepare
-
                    }
-
                }
-
            }
     }
-    
-       
-    
+     
     override func viewDidLoad() {
         
         super.viewDidLoad()

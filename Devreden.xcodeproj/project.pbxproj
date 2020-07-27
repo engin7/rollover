@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1005EC53234A95BB00172ECB /* DateFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005EC52234A95BB00172ECB /* DateFinder.swift */; };
+		1070936824CF4FA300D0B552 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070936324CF4FA300D0B552 /* SearchResult.swift */; };
+		1070936A24CF4FA300D0B552 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070936524CF4FA300D0B552 /* PreviewView.swift */; };
+		1070936B24CF4FA300D0B552 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070936624CF4FA300D0B552 /* StringUtils.swift */; };
+		1070937A24CF55DC00D0B552 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070937824CF55DC00D0B552 /* VisionViewController.swift */; };
+		1070937C24CF564200D0B552 /* VisionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070937B24CF564200D0B552 /* VisionUIViewController.swift */; };
 		1093CB1F245BA9200012113A /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093CB1E245BA9200012113A /* Modal.swift */; };
 		1093CB21245C67F80012113A /* SayisalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093CB20245C67F80012113A /* SayisalTableViewController.swift */; };
-		10A5876A24C23BE3001D583A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5876924C23BE3001D583A /* ScanViewController.swift */; };
 		10F50BC1245620F000C1D50D /* SuperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F50BC0245620F000C1D50D /* SuperTableViewController.swift */; };
 		10F714EB22A83F5A00F919AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F714EA22A83F5A00F919AA /* AppDelegate.swift */; };
 		10F714ED22A83F5A00F919AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F714EC22A83F5A00F919AA /* ViewController.swift */; };
@@ -22,9 +26,13 @@
 
 /* Begin PBXFileReference section */
 		1005EC52234A95BB00172ECB /* DateFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFinder.swift; sourceTree = "<group>"; };
+		1070936324CF4FA300D0B552 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		1070936524CF4FA300D0B552 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		1070936624CF4FA300D0B552 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		1070937824CF55DC00D0B552 /* VisionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
+		1070937B24CF564200D0B552 /* VisionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionUIViewController.swift; sourceTree = "<group>"; };
 		1093CB1E245BA9200012113A /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		1093CB20245C67F80012113A /* SayisalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayisalTableViewController.swift; sourceTree = "<group>"; };
-		10A5876924C23BE3001D583A /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		10F50BC0245620F000C1D50D /* SuperTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperTableViewController.swift; sourceTree = "<group>"; };
 		10F714E722A83F5A00F919AA /* Devreden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devreden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F714EA22A83F5A00F919AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,9 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1070936D24CF54F600D0B552 /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				1070936524CF4FA300D0B552 /* PreviewView.swift */,
+				1070936324CF4FA300D0B552 /* SearchResult.swift */,
+				1070936624CF4FA300D0B552 /* StringUtils.swift */,
+				1070937B24CF564200D0B552 /* VisionUIViewController.swift */,
+				1070937824CF55DC00D0B552 /* VisionViewController.swift */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
 		10F714DE22A83F5A00F919AA = {
 			isa = PBXGroup;
 			children = (
+				1070936D24CF54F600D0B552 /* Vision */,
 				10F714E922A83F5A00F919AA /* Devreden */,
 				10F714E822A83F5A00F919AA /* Products */,
 			);
@@ -70,7 +91,6 @@
 				10F714EC22A83F5A00F919AA /* ViewController.swift */,
 				10F50BC0245620F000C1D50D /* SuperTableViewController.swift */,
 				1093CB20245C67F80012113A /* SayisalTableViewController.swift */,
-				10A5876924C23BE3001D583A /* ScanViewController.swift */,
 				1093CB1E245BA9200012113A /* Modal.swift */,
 				1005EC52234A95BB00172ECB /* DateFinder.swift */,
 				10F714EE22A83F5A00F919AA /* Main.storyboard */,
@@ -158,14 +178,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1070936B24CF4FA300D0B552 /* StringUtils.swift in Sources */,
 				10F50BC1245620F000C1D50D /* SuperTableViewController.swift in Sources */,
+				1070936824CF4FA300D0B552 /* SearchResult.swift in Sources */,
 				1093CB21245C67F80012113A /* SayisalTableViewController.swift in Sources */,
+				1070937A24CF55DC00D0B552 /* VisionViewController.swift in Sources */,
+				1070936A24CF4FA300D0B552 /* PreviewView.swift in Sources */,
+				1070937C24CF564200D0B552 /* VisionUIViewController.swift in Sources */,
 				1093CB1F245BA9200012113A /* Modal.swift in Sources */,
 				10F714F322A83F5A00F919AA /* Devreden.xcdatamodeld in Sources */,
 				1005EC53234A95BB00172ECB /* DateFinder.swift in Sources */,
 				10F714ED22A83F5A00F919AA /* ViewController.swift in Sources */,
 				10F714EB22A83F5A00F919AA /* AppDelegate.swift in Sources */,
-				10A5876A24C23BE3001D583A /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 		1070936B24CF4FA300D0B552 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070936624CF4FA300D0B552 /* StringUtils.swift */; };
 		1070937A24CF55DC00D0B552 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070937824CF55DC00D0B552 /* VisionViewController.swift */; };
 		1070937C24CF564200D0B552 /* VisionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070937B24CF564200D0B552 /* VisionUIViewController.swift */; };
+		1070937E24D08B0E00D0B552 /* preVisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070937D24D08B0D00D0B552 /* preVisionViewController.swift */; };
 		1093CB1F245BA9200012113A /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093CB1E245BA9200012113A /* Modal.swift */; };
 		1093CB21245C67F80012113A /* SayisalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093CB20245C67F80012113A /* SayisalTableViewController.swift */; };
 		10F50BC1245620F000C1D50D /* SuperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F50BC0245620F000C1D50D /* SuperTableViewController.swift */; };
@@ -31,6 +32,7 @@
 		1070936624CF4FA300D0B552 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		1070937824CF55DC00D0B552 /* VisionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
 		1070937B24CF564200D0B552 /* VisionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionUIViewController.swift; sourceTree = "<group>"; };
+		1070937D24D08B0D00D0B552 /* preVisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = preVisionViewController.swift; sourceTree = "<group>"; };
 		1093CB1E245BA9200012113A /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		1093CB20245C67F80012113A /* SayisalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayisalTableViewController.swift; sourceTree = "<group>"; };
 		10F50BC0245620F000C1D50D /* SuperTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperTableViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				1070936624CF4FA300D0B552 /* StringUtils.swift */,
 				1070937B24CF564200D0B552 /* VisionUIViewController.swift */,
 				1070937824CF55DC00D0B552 /* VisionViewController.swift */,
+				1070937D24D08B0D00D0B552 /* preVisionViewController.swift */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				10F50BC1245620F000C1D50D /* SuperTableViewController.swift in Sources */,
 				1070936824CF4FA300D0B552 /* SearchResult.swift in Sources */,
 				1093CB21245C67F80012113A /* SayisalTableViewController.swift in Sources */,
+				1070937E24D08B0E00D0B552 /* preVisionViewController.swift in Sources */,
 				1070937A24CF55DC00D0B552 /* VisionViewController.swift in Sources */,
 				1070936A24CF4FA300D0B552 /* PreviewView.swift in Sources */,
 				1070937C24CF564200D0B552 /* VisionUIViewController.swift in Sources */,

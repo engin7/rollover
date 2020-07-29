@@ -8,9 +8,9 @@
 
 import UIKit
 
-let mockResults: [String] = ["10","32","25","29","44","47"]
+var mockResults: [String] = ["10","32","25","29","44","47"]
 
-let mockWinner = "10 32 25 29 44 47"
+var mockWinner = "08 - 18 - 29 - 43 - 45 - 49"
 
  
 class SearchResult {

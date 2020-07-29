@@ -34,7 +34,7 @@ class preVisionViewController: UIViewController, UIPickerViewDataSource, UIPicke
         components.month = calendar.component(.month, from: Super(weeksBefore: 0).dateS)
         components.year = calendar.component(.year, from: Super(weeksBefore: 0).dateS)
         datePicker.setDate(calendar.date(from: components)!, animated: false)
-        
+        datePicker.maximumDate = Super(weeksBefore: 0).dateS
     }
  
     
@@ -56,17 +56,11 @@ class preVisionViewController: UIViewController, UIPickerViewDataSource, UIPicke
       
             if selectedValue == "Super Loto" && weekday != 5 {
                   let components = Calendar.current.dateComponents([.weekOfYear], from: Super(weeksBefore: 0).dateS, to: sender.date)
-                let before:Int
-                if sender.date < Super(weeksBefore: 0).dateS {
-                before = abs(components.weekOfYear!-1)
-                } else {
-                before = abs(components.weekOfYear!)
-                }
-                
+
+                let before = abs(components.weekOfYear!-1)
                 datePicker.setDate(Super(weeksBefore: before).dateS, animated: true)
             }
-    }
+        }
     
 }
  
-

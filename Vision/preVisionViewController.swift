@@ -53,10 +53,17 @@ class preVisionViewController: UIViewController, UIPickerViewDataSource, UIPicke
     @objc func datePickerValueChanged(_ sender: UIDatePicker) {
         
         let weekday = calendar.component(.weekday, from: sender.date)
- 
+      
             if selectedValue == "Super Loto" && weekday != 5 {
-//                let before =
-                datePicker.setDate(Super(weeksBefore: 2).dateS, animated: true)
+                  let components = Calendar.current.dateComponents([.weekOfYear], from: Super(weeksBefore: 0).dateS, to: sender.date)
+                let before:Int
+                if sender.date < Super(weeksBefore: 0).dateS {
+                before = abs(components.weekOfYear!-1)
+                } else {
+                before = abs(components.weekOfYear!)
+                }
+                
+                datePicker.setDate(Super(weeksBefore: before).dateS, animated: true)
             }
     }
     

@@ -80,13 +80,11 @@ class ViewController:  UIViewController  {
         }
                 
          }
-         
-    
+          
             func getResponse()
 
         {
             
-               
                 URLSession.shared.dataTask(with: Super(weeksBefore: 0).url_super) { (data,
                    response, error) in
                

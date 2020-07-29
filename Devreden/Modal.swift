@@ -16,15 +16,15 @@ struct Super {
          
     var url_super: URL
     let weeksBefore: Int
-   
+   var dateS =  Date.today().previous(.thursday)
+
     init(weeksBefore: Int) {
         
         self.weeksBefore = weeksBefore
 
         dateFormatter.dateFormat = "yyyyMMdd"
+     
         // superloto is only thursdays
-        var dateS =  Date.today().previous(.thursday)
-
         for _ in 0..<weeksBefore {
             
          dateS  =  dateS.previous(.thursday)

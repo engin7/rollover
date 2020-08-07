@@ -12,31 +12,6 @@ import UserNotifications
  
 // TODO: stripe support, Userdefaults for slider,
 
-
-
-// for json structure (array in array)
-struct JSONTest: Codable {
-    var data: Datam?
-}
-
-struct Datam: Codable {
-    var haftayaDevredenTutar: Double
-    var cekilisTarihi: String
-    var rakamlarNumaraSirasi: String
-    var devirSayisi: Int
-}
-
-func currencyFormatter(amount:Double) -> String  {
-let currencyFormatter = NumberFormatter()
-   currencyFormatter.usesGroupingSeparator = true
-   currencyFormatter.numberStyle = .currency
-   currencyFormatter.maximumFractionDigits = 0
-      // localize to your grouping and decimal separator
-   currencyFormatter.locale = Locale(identifier: "tr_TR")
-    return currencyFormatter.string(from: NSNumber(value: amount))!
-}
-
-
 class ViewController:  UIViewController  {
     // MARK: - View Life Cycle
  
@@ -99,7 +74,6 @@ class ViewController:  UIViewController  {
                    // We'll force unwrap with the !, if you've got defined data you may need more error checking
                 let devreden = currencyFormatter(amount: self.devir_super)
                    
-
                    //Get back to the main queue
                    DispatchQueue.main.async {
                        if    JSONDict.data?.devirSayisi == 0   {
@@ -123,7 +97,7 @@ class ViewController:  UIViewController  {
         guard let data = data else { return }
 
         do {
-            
+
             //Decode data
             let JSONDict = try JSONDecoder().decode(JSONTest.self, from: data)
             self.devir_sayisal = JSONDict.data!.haftayaDevredenTutar

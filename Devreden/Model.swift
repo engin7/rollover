@@ -12,6 +12,30 @@ import UIKit
 let dateFormatter = DateFormatter()
 
 
+// for json structure (array in array)
+struct JSONTest: Codable {
+    var data: Datam?
+}
+
+struct Datam: Codable {
+    var haftayaDevredenTutar: Double
+    var cekilisTarihi: String
+    var rakamlarNumaraSirasi: String
+    var devirSayisi: Int
+}
+
+func currencyFormatter(amount:Double) -> String  {
+let currencyFormatter = NumberFormatter()
+   currencyFormatter.usesGroupingSeparator = true
+   currencyFormatter.numberStyle = .currency
+   currencyFormatter.maximumFractionDigits = 0
+      // localize to your grouping and decimal separator
+   currencyFormatter.locale = Locale(identifier: "tr_TR")
+    return currencyFormatter.string(from: NSNumber(value: amount))!
+}
+
+
+
 struct Super {
          
     var url_super: URL
